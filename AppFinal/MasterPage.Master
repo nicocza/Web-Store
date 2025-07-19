@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="AppFinal.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>MasterPage</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="styles/Master.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div id="navbar">
+                <ul>
+                    <li><a href="Default.aspx">Home</a></li>
+                    <li><a href="Perfil.aspx">Perfil</a></li>
+                    <li><a href="Favoritos.aspx">Favoritos</a></li>
+                    <li><a href="Gestion.aspx">Gestión</a></li>
+                    <li><a href="Contacto.aspx">Contacto</a></li>
+                </ul>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <div id="footer">
+                <span>contacto@nicoczawebstore.com</span>
+                <span>Whatsapp +54 11 0000 0000</span>
+                <span>www.nicoczawebstore.com</span>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

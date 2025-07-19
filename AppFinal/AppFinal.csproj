@@ -67,12 +67,60 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Contacto.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Favoritos.aspx" />
+    <Content Include="Gestion.aspx" />
+    <Content Include="Perfil.aspx" />
+    <Content Include="Styles\Master.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contacto.aspx.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contacto.aspx.designer.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Favoritos.aspx.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Favoritos.aspx.designer.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion.aspx.cs">
+      <DependentUpon>Gestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gestion.aspx.designer.cs">
+      <DependentUpon>Gestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -80,6 +128,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\TPFinalNivel3\TPFinalNivel3_CarranzaFabricio\Control\Control.csproj">
+      <Project>{97678419-bdb8-4a17-bbcc-f19458f3472a}</Project>
+      <Name>Control</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\TPFinalNivel3\TPFinalNivel3_CarranzaFabricio\Model\Model.csproj">
+      <Project>{1ab60b66-b001-45f0-a175-c4bcece66118}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

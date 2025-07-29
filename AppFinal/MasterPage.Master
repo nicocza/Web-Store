@@ -27,14 +27,14 @@
                             <a class="nav-link" href="Favoritos.aspx">Favoritos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Gestion.aspx">Gestión</a>
+                            <a class="nav-link" href="Gestion.aspx">Gestión de artículos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Contacto.aspx">Contacto</a>
                         </li>
                     </ul>
                     <form1 class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <input class="form-control me-2" type="search" placeholder="Productos, marcas..." aria-label="Search"  />
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form1>
                 </div>
@@ -45,12 +45,13 @@
             <hr />
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+            <hr />
         </div>
 
         <div id="footer">
-                <span>contacto@nicoczawebstore.com</span>
-                <span>Whatsapp +54 11 0000 0000</span>
-                <span>www.nicoczawebstore.com</span>
+            <span>contacto@nicoczawebstore.com</span>
+            <span>Whatsapp +54 11 0000 0000</span>
+            <span>www.nicoczawebstore.com</span>
         </div>
     </form>
 </body>

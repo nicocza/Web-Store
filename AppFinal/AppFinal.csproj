@@ -70,8 +70,10 @@
     <Content Include="Contacto.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Favoritos.aspx" />
+    <Content Include="FormularioArticulo.aspx" />
     <Content Include="Gestion.aspx" />
     <Content Include="Perfil.aspx" />
+    <Content Include="Styles\CardStyles.css" />
     <Content Include="Styles\MasterStyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -96,6 +98,13 @@
     </Compile>
     <Compile Include="Favoritos.aspx.designer.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioArticulo.aspx.cs">
+      <DependentUpon>FormularioArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioArticulo.aspx.designer.cs">
+      <DependentUpon>FormularioArticulo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gestion.aspx.cs">
       <DependentUpon>Gestion.aspx</DependentUpon>

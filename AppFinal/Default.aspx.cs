@@ -15,8 +15,22 @@ namespace AppFinal
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            ListaArticulo = negocio.listar();    
+            if (Session["ListaArticulos"] ==  null)
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                Session.Add("ListaArticulos", negocio.listar());
+            }
+
+            if (!IsPostBack)
+            {
+                Repetidor.DataSource = Session["ListaArticulos"];
+                Repetidor.DataBind();
+            }
+        }
+
+        protected void btnVerDetalle_Click(object sender, EventArgs e)
+        {
+            string valor = ((Button)sender).CommandArgument;
         }
     }
 }

@@ -48,7 +48,7 @@
     </div>
 
     <div class="mb-3">
-        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-dark" OnClick="btnAceptar_Click" />
+        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn-2" OnClick="btnAceptar_Click" />
     </div>
     <a href="Gestion.aspx">Atrás</a>
 </asp:Content>

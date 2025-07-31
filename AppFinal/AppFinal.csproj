@@ -73,7 +73,8 @@
     <Content Include="FormularioArticulo.aspx" />
     <Content Include="Gestion.aspx" />
     <Content Include="Perfil.aspx" />
-    <Content Include="Styles\CardStyles.css" />
+    <Content Include="Styles\ButtonStyle.css" />
+    <Content Include="Styles\CardStyle.css" />
     <Content Include="Styles\MasterStyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>

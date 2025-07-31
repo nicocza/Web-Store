@@ -1,41 +1,15 @@
-﻿#footer
-{
-    background-color:gainsboro;
-    color:black;
-    bottom:0;
-    left:0;
-    width:100%;
-    padding:25px;
+﻿#footer {
+    background-color: gainsboro;
+    color: black;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
     text-align: center;
-    font-size:medium;
+    font-size: medium;
+    font: sans-serif;
 }
 #footer span
 {
     padding-left:40px;
-}
-
-button
-{
-    background:#2196f3
-    radial-gradient(
-        circle,
-    transparent 1%,
-    #47a7f5 1%)
-    center/15000%;
-}
-
-.efecto-onda
-{
-    background-position:center;
-    transition:background 0.8s;
-}
-.efecto-onda:hover
-{
-    background-color:#60d9fa;
-}
-.efecto-onda:active
-{
-    background-color:#b2d3f1;
-    background-size:100%;
-    transition:background 0s;
 }

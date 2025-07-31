@@ -38,12 +38,11 @@ namespace AppFinal
                 txtId.ReadOnly = true;
                 txtCodigo.Text = seleccionado.Codigo;
                 txtNombre.Text = seleccionado.Nombre;
-                //MARCA...
-                //CATEGORIA...
+                ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
+                ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
                 txtDescripcion.Text = seleccionado.Descripcion;
                 txtURLImagen.Text = seleccionado.UrlImagen;
                 txtPrecio.Text = seleccionado.Precio.ToString();
-
             }
         }
 

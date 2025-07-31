@@ -11,12 +11,15 @@
             <ItemTemplate>
                 <div class="col">
                     <div class="card">
-                        <img src="<%#Eval("UrlImagen")%>" class="card-img-top" alt="...">
+                        <img src="<%#Eval("UrlImagen")%>" alt="<%#Eval("Nombre")%>" onerror="this.onerror=null;this.src='https://www.afim.com.eg/public/images/no-photo.png';" />
                         <div class="card-body">
-                            <h5 class="card-title"><%#Eval("Nombre")%></h5>
+                            <h4 class="card-title"><%#Eval("Nombre")%></h4>
                             <p class="card-text"><%#Eval("Descripcion")%></p>
-                            <a href="DetalleArticulo.aspx?id=<%#Eval("Id")%>">Ver Detalle</a>
-                            <asp:Button Text="Ver Detalle" CssClass="btn btn-primary" runat="server" ID="btnVerDetalle" CommandArgument='<%#Eval("Id")%>' CommandName="ArticuloID" Onclick="btnVerDetalle_Click"/>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="badge rounded-pill text-bg-info"><%#Eval("Marca")%></span>
+                                <span class="badge rounded-pill text-bg-info"><%#Eval("Categoria")%></span>
+                            </div>
+                            <asp:Button Text="Ver Detalle" CssClass="btn-1" runat="server" ID="btnVerDetalle" CommandArgument='<%#Eval("Id")%>' CommandName="ArticuloID" OnClick="btnVerDetalle_Click" />
                         </div>
                     </div>
                 </div>

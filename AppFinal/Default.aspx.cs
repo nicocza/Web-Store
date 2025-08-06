@@ -15,10 +15,10 @@ namespace AppFinal
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ListaArticulos"] ==  null)
+            if (Session["ListaArticulos"] == null)
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                Session.Add("ListaArticulos", negocio.listar());
+                Session.Add("ListaArticulos", negocio.listarSP());
             }
 
             if (!IsPostBack)

@@ -36,7 +36,7 @@
                         </li>
                     </ul>
                     <form1 class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Productos, marcas..." aria-label="Search"  />
+                        <input class="form-control me-2" type="search" placeholder="Productos, marcas..." aria-label="Search" />
                         <button class="btn btn-outline-info" type="submit">Buscar</button>
                     </form1>
                 </div>
@@ -50,7 +50,7 @@
             <hr />
         </div>
 
-        <div Id="footer">
+        <div id="footer">
             <span>contacto@nicoczawebstore.com</span>
             <span>Whatsapp +54 11 0000 0000</span>
             <span>www.nicoczawebstore.com</span>

@@ -1,13 +1,14 @@
-﻿using Control;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Model;
 using System.EnterpriseServices;
 using System.Web.Services.Discovery;
+using System.Globalization;
+using Control;
+using Model;
 
 namespace AppFinal
 {
@@ -21,28 +22,30 @@ namespace AppFinal
             {
                 if (!IsPostBack)
                 {
+                    txtId.Enabled = false;
                     cargarListasDDL();
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                Session.Add("Error", ex);
+                throw;
+                //Redireccion a pantalla de error...
             }
 
             if (Request.QueryString["Id"] != null)
             {
                 int Id = int.Parse(Request.QueryString["Id"].ToString());
                 List<Articulo> temporal = (List<Articulo>)Session["ListaArticulos"];
-                Articulo seleccionado = temporal.Find(x =>  x.Id == Id);
+                Articulo seleccionado = temporal.Find(x => x.Id == Id);
                 txtId.Text = seleccionado.Id.ToString();
-                txtId.ReadOnly = true;
                 txtCodigo.Text = seleccionado.Codigo;
                 txtNombre.Text = seleccionado.Nombre;
                 ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
                 ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
                 txtDescripcion.Text = seleccionado.Descripcion;
                 txtURLImagen.Text = seleccionado.UrlImagen;
-                txtPrecio.Text = seleccionado.Precio.ToString();
+                txtPrecio.Text = seleccionado.Precio.ToString("N2", CultureInfo.GetCultureInfo("es-AR"));
             }
         }
 
@@ -57,31 +60,41 @@ namespace AppFinal
             MarcaCategoria categoriaNegocio = new MarcaCategoria();
             ddlCategoria.DataSource = categoriaNegocio.obtenerCategorias();
             ddlCategoria.DataTextField = "Descripcion";
-            ddlCategoria.DataValueField= "Id";
+            ddlCategoria.DataValueField = "Id";
             ddlCategoria.DataBind();
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            Articulo art = new Articulo();
-            art.Id = int.Parse(txtId.Text);
-            art.Codigo = txtCodigo.Text;
-            art.Nombre = txtNombre.Text;
-            //art.Marca = ddlMarca.SelectedValue;
-            //art.Categoria = ddlCategoria.SelectedValue;
-            art.Descripcion = txtDescripcion.Text;
-            art.UrlImagen = txtURLImagen.Text;
-            art.Precio = decimal.Parse(txtPrecio.Text);
+            try
+            {
+                Articulo art = new Articulo();
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                art.Codigo = txtCodigo.Text;
+                art.Nombre = txtNombre.Text;
+                art.Marca = new Marca();
+                art.Marca.Id = int.Parse(ddlMarca.SelectedValue);
+                art.Categoria = new Categoria();
+                art.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
+                art.Descripcion = txtDescripcion.Text;
+                art.UrlImagen = txtURLImagen.Text;
+                art.Precio = decimal.Parse(txtPrecio.Text.ToString());
 
-            if (rbtnActivo.Checked)
-                art.Activo = true;
-            else art.Activo = false;
+                ((List<Articulo>)Session["ListaArticulos"]).Add(art);
 
-            //Llamo a la base de datos mediante algun metodo...
+                negocio.agregarSP(art);
+                Response.Redirect("Gestion.aspx", false);
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex);
+                throw;
+            }
+        }
 
-            ((List<Articulo>)Session["ListaArticulos"]).Add(art);
-
-            Response.Redirect("Gestion.aspx");
+        protected void txtURLImagen_TextChanged(object sender, EventArgs e)
+        {
+            imgArticulo.ImageUrl = txtURLImagen.Text;
         }
     }
 }

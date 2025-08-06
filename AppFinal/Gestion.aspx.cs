@@ -14,7 +14,7 @@ namespace AppFinal
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            dgvArticulos.DataSource = negocio.listar();
+            dgvArticulos.DataSource = negocio.listarSP();
             dgvArticulos.DataBind();
         }
 

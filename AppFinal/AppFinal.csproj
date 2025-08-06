@@ -142,11 +142,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\TPFinalNivel3\TPFinalNivel3_CarranzaFabricio\Control\Control.csproj">
+    <ProjectReference Include="..\Control\Control.csproj">
       <Project>{97678419-bdb8-4a17-bbcc-f19458f3472a}</Project>
       <Name>Control</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\TPFinalNivel3\TPFinalNivel3_CarranzaFabricio\Model\Model.csproj">
+    <ProjectReference Include="..\Model\Model.csproj">
       <Project>{1ab60b66-b001-45f0-a175-c4bcece66118}</Project>
       <Name>Model</Name>
     </ProjectReference>

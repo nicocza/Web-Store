@@ -16,14 +16,32 @@ namespace AppFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
+            txtId.Enabled = false;
 
             try
             {
                 if (!IsPostBack)
                 {
-                    txtId.Enabled = false;
                     cargarListasDDL();
+
+                    string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+                    if (id != "")
+                    {
+                        ArticuloNegocio negocio = new ArticuloNegocio();
+                        Articulo seleccionado = (negocio.listar(id))[0];
+
+                        txtId.Text = id;
+                        txtCodigo.Text = seleccionado.Codigo;
+                        txtNombre.Text = seleccionado.Nombre;
+                        ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
+                        ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
+                        txtDescripcion.Text = seleccionado.Descripcion;
+                        txtURLImagen.Text = seleccionado.UrlImagen;
+                        if (!string.IsNullOrEmpty(seleccionado.UrlImagen))
+                            imgArticulo.ImageUrl = seleccionado.UrlImagen;
+                        txtPrecio.Text = seleccionado.Precio.ToString("N2", CultureInfo.GetCultureInfo("es-AR"));
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -31,21 +49,6 @@ namespace AppFinal
                 Session.Add("Error", ex);
                 throw;
                 //Redireccion a pantalla de error...
-            }
-
-            if (Request.QueryString["Id"] != null)
-            {
-                int Id = int.Parse(Request.QueryString["Id"].ToString());
-                List<Articulo> temporal = (List<Articulo>)Session["ListaArticulos"];
-                Articulo seleccionado = temporal.Find(x => x.Id == Id);
-                txtId.Text = seleccionado.Id.ToString();
-                txtCodigo.Text = seleccionado.Codigo;
-                txtNombre.Text = seleccionado.Nombre;
-                ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
-                ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
-                txtDescripcion.Text = seleccionado.Descripcion;
-                txtURLImagen.Text = seleccionado.UrlImagen;
-                txtPrecio.Text = seleccionado.Precio.ToString("N2", CultureInfo.GetCultureInfo("es-AR"));
             }
         }
 
@@ -80,10 +83,15 @@ namespace AppFinal
                 nuevo.UrlImagen = txtURLImagen.Text;
                 nuevo.Precio = decimal.Parse(txtPrecio.Text.ToString());
 
-                negocio.agregarSP(nuevo);
-                Response.Redirect("Gestion.aspx", false);
+                if (Request.QueryString["id"] != null)
+                {
+                    nuevo.Id = int.Parse(Request.QueryString["id"].ToString());
+                    negocio.modificarSP(nuevo);
+                }
+                else
+                    negocio.agregarSP(nuevo);
 
-                ((List<Articulo>)Session["ListaArticulos"]).Add(nuevo);
+                Response.Redirect("Gestion.aspx", false);
             }
             catch (Exception ex)
             {

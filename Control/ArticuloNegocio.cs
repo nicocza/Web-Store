@@ -11,17 +11,22 @@ namespace Control
 {
     public class ArticuloNegocio
     {
-        public List<Articulo> listar()
+        public List<Articulo> listar(string id = "")
         {
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("SELECT Codigo, Nombre, A.Descripcion, ImagenUrl, Precio, C.Descripcion as Categoria, M.Descripcion as Marca, A.IdMarca, A.IdCategoria, A.Id FROM ARTICULOS A, CATEGORIAS C, MARCAS M WHERE C.Id = A.IdCategoria And M.Id = A.IdMarca");
+                string consulta = "SELECT Codigo, Nombre, A.Descripcion, ImagenUrl, Precio, C.Descripcion as Categoria, M.Descripcion as Marca, A.IdMarca, A.IdCategoria, A.Id FROM ARTICULOS A, CATEGORIAS C, MARCAS M WHERE C.Id = A.IdCategoria And M.Id = A.IdMarca ";
+                if (id != "")
+                {
+                    consulta += " and A.Id = " + id;
+                }
+                datos.setearConsulta(consulta);
                 datos.ejecutarLectura();
-               
-                while(datos.Lector.Read())
+
+                while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
                     aux.Id = (int)datos.Lector["Id"];
@@ -99,7 +104,7 @@ namespace Control
 
             try
             {
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria, ImagenUrl) VALUES ('"+nuevo.Codigo+"','"+nuevo.Nombre+"', '"+nuevo.Descripcion+"', '"+nuevo.Precio+"', @idMarca, @idCategoria, @ImagenUrl)");
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria, ImagenUrl) VALUES ('" + nuevo.Codigo + "','" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', '" + nuevo.Precio + "', @idMarca, @idCategoria, @ImagenUrl)");
                 datos.setearParametro("@idMarca", nuevo.Marca.Id);
                 datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
                 datos.setearParametro("@ImagenUrl", nuevo.UrlImagen);
@@ -141,21 +146,49 @@ namespace Control
             }
         }
 
-        public void modificar(Articulo art)
+        public void modificar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
                 datos.setearConsulta("Update ARTICULOS Set Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, Precio = @precio, IdMarca = @idmarca, IdCategoria = @idcategoria, IMagenUrl = @imagenUrl Where Id = @id");
-                datos.setearParametro("@codigo", art.Codigo);
-                datos.setearParametro("@nombre", art.Nombre);
-                datos.setearParametro("@descripcion", art.Descripcion);
-                datos.setearParametro("@precio", art.Precio);
-                datos.setearParametro("@idMarca", art.Marca.Id);
-                datos.setearParametro("@idCategoria", art.Categoria.Id);
-                datos.setearParametro("@imagenUrl", art.UrlImagen);
-                datos.setearParametro("@id", art.Id);
+                datos.setearParametro("@codigo", nuevo.Codigo);
+                datos.setearParametro("@nombre", nuevo.Nombre);
+                datos.setearParametro("@descripcion", nuevo.Descripcion);
+                datos.setearParametro("@precio", nuevo.Precio);
+                datos.setearParametro("@idMarca", nuevo.Marca.Id);
+                datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
+                datos.setearParametro("@imagenUrl", nuevo.UrlImagen);
+                datos.setearParametro("@id", nuevo.Id);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al modificar el artículo en la base de datos.", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificarSP(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearProcedimiento("storedModificarArticulo");
+                datos.setearParametro("@codigo", nuevo.Codigo);
+                datos.setearParametro("@nombre", nuevo.Nombre);
+                datos.setearParametro("@descripcion", nuevo.Descripcion);
+                datos.setearParametro("@precio", nuevo.Precio);
+                datos.setearParametro("@idMarca", nuevo.Marca.Id);
+                datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
+                datos.setearParametro("@imagenUrl", nuevo.UrlImagen);
+                datos.setearParametro("@id", nuevo.Id);
 
                 datos.ejecutarAccion();
             }
@@ -194,7 +227,7 @@ namespace Control
                 switch (campo)
                 {
                     case "Codigo":
-                        switch(criterio)
+                        switch (criterio)
                         {
                             case "Comienza con":
                                 consulta += "a.Codigo LIKE'" + filtro + "%' ";
@@ -202,11 +235,11 @@ namespace Control
                             case "Termina con ":
                                 consulta += "a.Codigo LIKE '%" + filtro + "'";
                                 break;
-                                default:
+                            default:
                                 consulta += "a.Codigo LIKE '%" + filtro + "%' ";
                                 break;
 
-                        }    
+                        }
                         break;
                     case "Nombre":
                         switch (criterio)

@@ -15,15 +15,12 @@ namespace AppFinal
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ListaArticulos"] == null)
-            {
-                ArticuloNegocio negocio = new ArticuloNegocio();
-                Session.Add("ListaArticulos", negocio.listarSP());
-            }
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            ListaArticulo = negocio.listarSP();
 
             if (!IsPostBack)
             {
-                Repetidor.DataSource = Session["ListaArticulos"];
+                Repetidor.DataSource = ListaArticulo;
                 Repetidor.DataBind();
             }
         }

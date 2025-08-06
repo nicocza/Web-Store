@@ -129,6 +129,7 @@ namespace Control
                 datos.setearParametro("@idcategoria", nuevo.Categoria.Id);
                 datos.setearParametro("@imagenurl", nuevo.UrlImagen);
                 datos.setearParametro("@precio", nuevo.Precio);
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {

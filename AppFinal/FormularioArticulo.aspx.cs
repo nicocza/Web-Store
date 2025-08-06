@@ -68,22 +68,22 @@ namespace AppFinal
         {
             try
             {
-                Articulo art = new Articulo();
+                Articulo nuevo = new Articulo();
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                art.Codigo = txtCodigo.Text;
-                art.Nombre = txtNombre.Text;
-                art.Marca = new Marca();
-                art.Marca.Id = int.Parse(ddlMarca.SelectedValue);
-                art.Categoria = new Categoria();
-                art.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
-                art.Descripcion = txtDescripcion.Text;
-                art.UrlImagen = txtURLImagen.Text;
-                art.Precio = decimal.Parse(txtPrecio.Text.ToString());
+                nuevo.Codigo = txtCodigo.Text;
+                nuevo.Nombre = txtNombre.Text;
+                nuevo.Marca = new Marca();
+                nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
+                nuevo.Categoria = new Categoria();
+                nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
+                nuevo.Descripcion = txtDescripcion.Text;
+                nuevo.UrlImagen = txtURLImagen.Text;
+                nuevo.Precio = decimal.Parse(txtPrecio.Text.ToString());
 
-                ((List<Articulo>)Session["ListaArticulos"]).Add(art);
-
-                negocio.agregarSP(art);
+                negocio.agregarSP(nuevo);
                 Response.Redirect("Gestion.aspx", false);
+
+                ((List<Articulo>)Session["ListaArticulos"]).Add(nuevo);
             }
             catch (Exception ex)
             {

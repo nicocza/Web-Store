@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Styles/FormularioStyle.css" rel="stylesheet" />
+    <link href="Styles/ButtonStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -24,22 +25,39 @@
             </div>
             <div class="mb-3">
                 <label for="ddlMarca" class="form-label">Marca</label>
-                <asp:DropDownList ID="ddlMarca" CssClass="form-select" BackColor="#0dcaf0" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlMarca" CssClass="form-select" runat="server"></asp:DropDownList>
             </div>
             <div class="mb-3">
                 <label for="ddlCategoria" class="form-label">Categoría</label>
-                <asp:DropDownList ID="ddlCategoria" CssClass="form-select" BackColor="#0dcaf0" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlCategoria" CssClass="form-select" runat="server"></asp:DropDownList>
             </div>
             <div class="mb-3">
                 <label for="txtPrecio" class="form-label">Precio</label>
                 <asp:TextBox runat="server" ID="txtPrecio" CssClass="form-control" />
             </div>
-
             <div class="mb-3">
-                <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn-2" OnClick="btnAceptar_Click" />
-                <a href="Gestion.aspx">Atrás</a>
+                <asp:Button ID="btnAceptar" runat="server" Text="Agregar" CssClass="btn-2" BackColor="#009933" ForeColor="White" OnClick="btnAceptar_Click" />
+            </div>
+
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <div class="mb-3">
+                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn-2" BackColor="#f8c107" ForeColor="White" OnClick="btnEliminar_Click" />
+                    </div>
+                    <%if (ConfirmaElimincaion)
+                        { %>
+                    <div class="mb-3">
+                        <asp:CheckBox Text="Confirmar eliminación" ID="chkConfirmarEliminacion" runat="server" />
+                        <asp:Button ID="btnConfirmarEliminacion" runat="server" Text="Eliminar" CssClass="btn-2" BackColor="#cc0000" ForeColor="White" OnClick="btnConfirmarEliminacion_Click" />
+                    </div>
+                    <%} %>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <div class="mb-3">
+                <a href="Gestion.aspx">Atras</a>
             </div>
         </div>
+
 
         <div class="formulario-columna derecha">
             <div class="mb-3">

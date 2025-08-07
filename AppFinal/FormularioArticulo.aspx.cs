@@ -9,14 +9,17 @@ using System.Web.Services.Discovery;
 using System.Globalization;
 using Control;
 using Model;
+using System.Security.Policy;
 
 namespace AppFinal
 {
     public partial class FormularioArticulo : System.Web.UI.Page
     {
+        public bool ConfirmaElimincaion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             txtId.Enabled = false;
+            ConfirmaElimincaion = false;
 
             try
             {
@@ -103,6 +106,28 @@ namespace AppFinal
         protected void txtURLImagen_TextChanged(object sender, EventArgs e)
         {
             imgArticulo.ImageUrl = txtURLImagen.Text;
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConfirmaElimincaion = true;
+        }
+
+        protected void btnConfirmarEliminacion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkConfirmarEliminacion.Checked)
+                {
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    negocio.eliminarSP(int.Parse(txtId.Text));
+                    Response.Redirect("Gestion.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex);
+            }
         }
     }
 }

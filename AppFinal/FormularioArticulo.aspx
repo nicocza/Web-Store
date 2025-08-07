@@ -35,26 +35,31 @@
                 <label for="txtPrecio" class="form-label">Precio</label>
                 <asp:TextBox runat="server" ID="txtPrecio" CssClass="form-control" />
             </div>
-            <div class="mb-3">
-                <asp:Button ID="btnAceptar" runat="server" Text="Agregar" CssClass="btn-2" BackColor="#009933" ForeColor="White" OnClick="btnAceptar_Click" />
+            <div class="formulario-accion">
+                <div class="botones-accion">
+                    <asp:Button ID="btnAceptar" runat="server" Text="Agregar" CssClass="btn-2" BackColor="#198754" ForeColor="White" OnClick="btnAceptar_Click" />
+
+                    <asp:UpdatePanel runat="server">
+                        <ContentTemplate>
+                            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn-2" BackColor="#ffc107" ForeColor="black" OnClick="btnEliminar_Click" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
             </div>
 
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <asp:UpdatePanel runat="server">
                 <ContentTemplate>
-                    <div class="mb-3">
-                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn-2" BackColor="#f8c107" ForeColor="White" OnClick="btnEliminar_Click" />
-                    </div>
                     <%if (ConfirmaElimincaion)
                         { %>
                     <div class="mb-3">
                         <asp:CheckBox Text="Confirmar eliminación" ID="chkConfirmarEliminacion" runat="server" />
-                        <asp:Button ID="btnConfirmarEliminacion" runat="server" Text="Eliminar" CssClass="btn-2" BackColor="#cc0000" ForeColor="White" OnClick="btnConfirmarEliminacion_Click" />
+                        <asp:Button ID="btnConfirmarEliminacion" runat="server" Text="Eliminar" CssClass="btn-2" BackColor="#dc3545" ForeColor="White" OnClick="btnConfirmarEliminacion_Click" />
                     </div>
                     <%} %>
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <div class="mb-3">
-                <a href="Gestion.aspx">Atras</a>
+            <div class="mb-4">
+                <asp:Button ID="btnAtras" runat="server" Text="Atrás" CssClass="btn-2" OnClick="btnAtras_Click" />
             </div>
         </div>
 

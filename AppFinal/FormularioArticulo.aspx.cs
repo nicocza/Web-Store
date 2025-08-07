@@ -129,5 +129,10 @@ namespace AppFinal
                 Session.Add("Error", ex);
             }
         }
+
+        protected void btnAtras_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Gestion.aspx");
+        }
     }
 }

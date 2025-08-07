@@ -29,5 +29,10 @@ namespace AppFinal
             dgvArticulos.PageIndex = e.NewPageIndex;
             dgvArticulos.DataBind();
         }
+
+        protected void btnIrAFormulario_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FormularioArticulo.aspx");
+        }
     }
 }

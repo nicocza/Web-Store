@@ -37,11 +37,11 @@
             </div>
             <div class="formulario-accion">
                 <div class="botones-accion">
-                    <asp:Button ID="btnAceptar" runat="server" Text="Agregar" CssClass="btn-2" BackColor="#198754" ForeColor="White" OnClick="btnAceptar_Click" />
+                    <asp:Button ID="btnAceptar" runat="server" Text="Agregar" CssClass="btn-2 focus-ring focus-ring-success" BackColor="#198754" ForeColor="White" OnClick="btnAceptar_Click" />
 
                     <asp:UpdatePanel runat="server">
                         <ContentTemplate>
-                            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn-2" BackColor="#ffc107" ForeColor="black" OnClick="btnEliminar_Click" />
+                            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn-2 focus-ring focus-ring-warning" BackColor="#ffc107" ForeColor="black" OnClick="btnEliminar_Click" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
@@ -53,13 +53,13 @@
                         { %>
                     <div class="mb-3">
                         <asp:CheckBox Text="Confirmar eliminación" ID="chkConfirmarEliminacion" runat="server" />
-                        <asp:Button ID="btnConfirmarEliminacion" runat="server" Text="Eliminar" CssClass="btn-2" BackColor="#dc3545" ForeColor="White" OnClick="btnConfirmarEliminacion_Click" />
+                        <asp:Button ID="btnConfirmarEliminacion" runat="server" Text="Eliminar" CssClass="btn-2 focus-ring focus-ring-danger" BackColor="#dc3545" ForeColor="White" OnClick="btnConfirmarEliminacion_Click" />
                     </div>
                     <%} %>
                 </ContentTemplate>
             </asp:UpdatePanel>
             <div class="mb-4">
-                <asp:Button ID="btnAtras" runat="server" Text="Atrás" CssClass="btn-2" OnClick="btnAtras_Click" />
+                <asp:Button ID="btnAtras" runat="server" Text="Atrás" CssClass="btn-2 focus-ring focus-ring-info" ForeColor="#0dcaf0" OnClick="btnAtras_Click" />
             </div>
         </div>
 

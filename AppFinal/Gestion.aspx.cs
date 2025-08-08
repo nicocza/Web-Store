@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,7 +15,8 @@ namespace AppFinal
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            dgvArticulos.DataSource = negocio.listarSP();
+            Session.Add("ListaArticulos", negocio.listarSP());
+            dgvArticulos.DataSource = Session["ListaArticulos"];
             dgvArticulos.DataBind();
         }
 
@@ -33,6 +35,14 @@ namespace AppFinal
         protected void btnIrAFormulario_Click(object sender, EventArgs e)
         {
             Response.Redirect("FormularioArticulo.aspx");
+        }
+
+        protected void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> lista = (List<Articulo>)Session["ListaArticulos"];
+            List<Articulo>listaFiltrada = lista.FindAll(x => x.Nombre.ToUpper().Contains(txtFiltro.Text.ToUpper()) || x.Codigo.ToUpper().Contains(txtFiltro.Text.ToUpper()) || x.Marca.ToString().ToUpper().Contains(txtFiltro.Text.ToUpper()) || x.Categoria.ToString().ToUpper().Contains(txtFiltro.Text.ToUpper()));
+            dgvArticulos.DataSource= listaFiltrada;
+            dgvArticulos.DataBind();
         }
     }
 }

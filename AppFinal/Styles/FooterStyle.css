@@ -1,0 +1,16 @@
+﻿
+#footer {
+    background-color: gainsboro;
+    color: black;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+    font-size: medium;
+    font: "Montserrat" sans-serif;
+}
+#footer span
+{
+    padding-left:40px;
+}

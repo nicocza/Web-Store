@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Styles/FormularioStyle.css" rel="stylesheet" />
-    <link href="Styles/ButtonStyle.css" rel="stylesheet" />
+    <link href="Styles/Botones.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -25,11 +25,11 @@
             </div>
             <div class="mb-3">
                 <label for="ddlMarca" class="form-label">Marca</label>
-                <asp:DropDownList ID="ddlMarca" CssClass="form-select" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlMarca" CssClass="form-select" BackColor="#333333" ForeColor="White" Font-Bold="true" runat="server"></asp:DropDownList>
             </div>
             <div class="mb-3">
                 <label for="ddlCategoria" class="form-label">Categoría</label>
-                <asp:DropDownList ID="ddlCategoria" CssClass="form-select" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlCategoria" CssClass="form-select" BackColor="#333333" ForeColor="White" Font-Bold="true" runat="server"></asp:DropDownList>
             </div>
             <div class="mb-3">
                 <label for="txtPrecio" class="form-label">Precio</label>

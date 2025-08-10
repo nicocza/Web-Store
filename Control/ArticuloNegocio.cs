@@ -238,49 +238,48 @@ namespace Control
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdMarca, m.Descripcion AS Marca, a.IdCategoria, c.Descripcion AS Categoria, a.Precio, a.ImagenUrl FROM Articulos a JOIN Marcas m ON a.IdMarca = m.Id JOIN Categorias c ON a.IdCategoria = c.Id AND ";
+                string consulta = "SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdMarca, m.Descripcion AS Marca, a.IdCategoria, c.Descripcion AS Categoria, a.Precio, a.ImagenUrl FROM Articulos a JOIN Marcas m ON a.IdMarca = m.Id JOIN Categorias c ON a.IdCategoria = c.Id ";
                 switch (campo)
                 {
-                    case "Codigo":
+                    case "Precio":
+                        consulta += " AND ";
                         switch (criterio)
                         {
-                            case "Comienza con":
-                                consulta += "a.Codigo LIKE'" + filtro + "%' ";
+                            case "Mayor a":
+                                consulta += "a.Precio > " + filtro;
                                 break;
-                            case "Termina con ":
-                                consulta += "a.Codigo LIKE '%" + filtro + "'";
-                                break;
-                            default:
-                                consulta += "a.Codigo LIKE '%" + filtro + "%' ";
-                                break;
-
-                        }
-                        break;
-                    case "Nombre":
-                        switch (criterio)
-                        {
-                            case "Comienza con":
-                                consulta += "a.Nombre LIKE'" + filtro + "%' ";
-                                break;
-                            case "Termina con":
-                                consulta += "a.Nombre LIKE '%" + filtro + "'";
-                                break;
-                            default:
-                                consulta += "a.Nombre LIKE '%" + filtro + "%' ";
+                            case "Menor a":
+                                consulta += "a.Precio < " + filtro;
                                 break;
                         }
                         break;
-                    case "Descripcion":
+                    case "Marca":
+                        consulta += " AND ";
                         switch (criterio)
                         {
                             case "Comienza con":
-                                consulta += "a.Descripcion LIKE'" + filtro + "%' ";
+                                consulta += "m.Descripcion LIKE'" + filtro + "%' ";
                                 break;
                             case "Termina con":
-                                consulta += "a.Descripcion LIKE '%" + filtro + "'";
+                                consulta += "m.Descripcion LIKE '%" + filtro + "'";
                                 break;
                             default:
-                                consulta += "a.Descripcion LIKE '%" + filtro + "%' ";
+                                consulta += "m.Descripcion LIKE '%" + filtro + "%' ";
+                                break;
+                        }
+                        break;
+                    case "Categoría":
+                        consulta += " AND ";
+                        switch (criterio)
+                        {
+                            case "Comienza con":
+                                consulta += "c.Descripcion LIKE'" + filtro + "%' ";
+                                break;
+                            case "Termina con":
+                                consulta += "c.Descripcion LIKE '%" + filtro + "'";
+                                break;
+                            default:
+                                consulta += "c.Descripcion LIKE '%" + filtro + "%' ";
                                 break;
                         }
                         break;
@@ -288,6 +287,7 @@ namespace Control
                         throw new Exception("No se reconoce el campo de búsqueda.");
 
                 }
+
                 datos.setearConsulta(consulta);
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())

@@ -8,12 +8,15 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="styles/MasterStyle.css" rel="stylesheet" />
-    <link href="styles/ButtonStyle.css" rel="stylesheet" />
+    <link href="styles/FooterStyle.css" rel="stylesheet" />
+    <link href="styles/Botones.css" rel="stylesheet" />
     <link href="Styles/CardStyle.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
+
+
+
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="Default.aspx">Home</a>
@@ -35,10 +38,12 @@
                             <a class="nav-link" href="Contacto.aspx">Contacto</a>
                         </li>
                     </ul>
-                    <form1 class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Productos, marcas..." aria-label="Search" />
+                    <%--<form1 class="d-flex" role="search">
+                        <asp:TextBox ID="txtFiltroHome" CssClass="form-control" AutoPostBack="true" BorderColor="#0dcaf0" BackColor="#212529" ForeColor="White" Width="300px" runat="server" OnTextChanged="txtFiltroHome_TextChanged" />
+                        <asp:Button ID="btnFiltroHome" CssClass="btn btn-outline-info" runat="server" Text="Buscar" OnClick="btnFiltroHome_Click" />
+                       <%-- <input class="form-control me-2" type="search" placeholder="Productos, marcas..." aria-label="Search" />
                         <button class="btn btn-outline-info" type="submit">Buscar</button>
-                    </form1>
+                    </form1>--%>
                 </div>
             </div>
         </nav>

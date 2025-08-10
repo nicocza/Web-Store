@@ -53,7 +53,7 @@
                         { %>
                     <div class="mb-3">
                         <asp:CheckBox Text="Confirmar eliminación" ID="chkConfirmarEliminacion" runat="server" />
-                        <asp:Button ID="btnConfirmarEliminacion" runat="server" Text="Eliminar" CssClass="btn-2 focus-ring focus-ring-danger" BackColor="#dc3545" ForeColor="White" OnClick="btnConfirmarEliminacion_Click" />
+                        <asp:Button ID="btnConfirmarEliminacion" runat="server" Text="Eliminar" CssClass="btn-2 focus-ring focus-ring-danger" BackColor="#dc3545" ForeColor="Black" OnClick="btnConfirmarEliminacion_Click" />
                     </div>
                     <%} %>
                 </ContentTemplate>
@@ -62,7 +62,6 @@
                 <asp:Button ID="btnAtras" runat="server" Text="Atrás" CssClass="btn-2 focus-ring focus-ring-info" ForeColor="#0dcaf0" OnClick="btnAtras_Click" />
             </div>
         </div>
-
 
         <div class="formulario-columna derecha">
             <div class="mb-3">

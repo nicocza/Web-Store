@@ -15,21 +15,75 @@ namespace AppFinal
     {
 
         /// <summary>
-        /// txtAgregaMarca control.
+        /// txtAgregarMarca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAgregaMarca;
+        protected global::System.Web.UI.WebControls.TextBox txtAgregarMarca;
 
         /// <summary>
-        /// btnAgregaMarca control.
+        /// btnAgregarMarca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregaMarca;
+        protected global::System.Web.UI.WebControls.Button btnAgregarMarca;
+
+        /// <summary>
+        /// txtAgregarCategoria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAgregarCategoria;
+
+        /// <summary>
+        /// btnAgregarCategoria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarCategoria;
+
+        /// <summary>
+        /// txtEliminarMarca control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEliminarMarca;
+
+        /// <summary>
+        /// btnEliminarMarca control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminarMarca;
+
+        /// <summary>
+        /// txtEliminarCategoria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEliminarCategoria;
+
+        /// <summary>
+        /// btnEliminarCategoria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminarCategoria;
     }
 }

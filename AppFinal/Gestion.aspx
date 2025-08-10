@@ -9,7 +9,7 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <div class="mb-3">
-                <label style="font-size: x-large" for="txtFiltro" class="form-label">Filtrar</label>
+                <asp:Label runat="server" Text="Filtrar" CssClass="form-label" Font-Size="X-Large" Font-Bold="true"></asp:Label>
                 <asp:TextBox ID="txtFiltro" AutoPostBack="true" OnTextChanged="txtFiltro_TextChanged" CssClass="form-control" Width="300px" BackColor="#333333" ForeColor="White" BorderColor="#0dcaf0" runat="server" />
             </div>
             <div class="col-6" style="display: flex; flex-direction: column; justify-content: flex-end">
@@ -69,5 +69,5 @@
     </asp:UpdatePanel>
 
     <asp:Button ID="btnIrAFormulario" runat="server" Text="Agregar Artículo" CssClass="btn-2 focus-ring focus-ring-info" ForeColor="#0dcaf0" OnClick="btnIrAFormulario_Click" />
-    <asp:Button ID="btnIrAgregarMyC" runat="server" Text="Agregar Marca/Categoría" CssClass="btn-2 focus-ring focus-ring-info" ForeColor="#0dcaf0" OnClick="btnIrAgregarMyC_Click"/>
+    <asp:Button ID="btnIrAgregarMyC" runat="server" Text="Gestionar Marcas/Categorías" CssClass="btn-2 focus-ring focus-ring-info" ForeColor="#0dcaf0" OnClick="btnIrAgregarMyC_Click"/>
 </asp:Content>

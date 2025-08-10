@@ -13,7 +13,8 @@ namespace AppFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+                cargarListasDDL();
         }
 
         protected void btnAgregarMarca_Click(object sender, EventArgs e)
@@ -55,12 +56,45 @@ namespace AppFinal
 
         protected void btnEliminarMarca_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                MarcaCategoria negocio = new MarcaCategoria();
+                negocio.eliminarMarcaSP(int.Parse(ddlMarca.SelectedValue));
+                Response.Redirect("MarcasCategorias.aspx");
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex);
+            }
         }
 
         protected void btnEliminarCategoria_Click(object sender, EventArgs e)
         {
+            try
+            {
+                MarcaCategoria negocio = new MarcaCategoria();
+                negocio.eliminarCategoriaSP(int.Parse(ddlCategoria.SelectedValue));
+                Response.Redirect("MarcasCategorias.aspx");
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex);
+            }
+        }
 
+        private void cargarListasDDL()
+        {
+            MarcaCategoria marcaNegocio = new MarcaCategoria();
+            ddlMarca.DataSource = marcaNegocio.obtenerMarcas();
+            ddlMarca.DataTextField = "Descripcion";
+            ddlMarca.DataValueField = "Id";
+            ddlMarca.DataBind();
+
+            MarcaCategoria categoriaNegocio = new MarcaCategoria();
+            ddlCategoria.DataSource = categoriaNegocio.obtenerCategorias();
+            ddlCategoria.DataTextField = "Descripcion";
+            ddlCategoria.DataValueField = "Id";
+            ddlCategoria.DataBind();
         }
     }
 }

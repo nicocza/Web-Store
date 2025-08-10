@@ -61,6 +61,21 @@ namespace Control
             }
         }
 
+        public void eliminarMarcaSP(int id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearProcedimiento("storedEliminarMarca");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         public List<Categoria> obtenerCategorias()
         {
@@ -112,6 +127,22 @@ namespace Control
             finally
             {
                 datos.cerrarConexion();
+            }
+        }
+
+        public void eliminarCategoriaSP(int id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearProcedimiento("storedEliminarCategoria");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

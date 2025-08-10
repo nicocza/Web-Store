@@ -19,7 +19,7 @@ namespace Control
                 datos.setearConsulta("SELECT Id, Descripcion FROM Marcas");
                 datos.ejecutarLectura();
 
-                while(datos.Lector.Read())
+                while (datos.Lector.Read())
                 {
                     Marca aux = new Marca();
                     aux.Id = (int)datos.Lector["Id"];
@@ -38,8 +38,29 @@ namespace Control
             {
                 datos.cerrarConexion();
             }
-        
+
         }
+
+        public void agregarMarcaSP(Marca nueva)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearProcedimiento("storedAltaMarca");
+                datos.setearParametro("@descripcion", nueva.Descripcion);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
 
         public List<Categoria> obtenerCategorias()
         {
@@ -52,7 +73,7 @@ namespace Control
                 datos.ejecutarLectura();
 
 
-                while(datos.Lector.Read())
+                while (datos.Lector.Read())
                 {
                     Categoria aux = new Categoria();
                     aux.Id = (int)datos.Lector["Id"];
@@ -60,7 +81,7 @@ namespace Control
 
                     lista.Add(aux);
                 }
-                
+
                 return lista;
             }
             catch (Exception ex)
@@ -71,7 +92,27 @@ namespace Control
             {
                 datos.cerrarConexion();
             }
-            
+
+        }
+
+        public void agregarCategoriaSP(Categoria nueva)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearProcedimiento("storedAltaCategoria");
+                datos.setearParametro("@descripcion", nueva.Descripcion);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }

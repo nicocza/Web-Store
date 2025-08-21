@@ -16,6 +16,7 @@ namespace AppFinal
     public partial class FormularioArticulo : System.Web.UI.Page
     {
         public bool ConfirmaElimincaion { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             txtId.Enabled = false;
@@ -128,11 +129,6 @@ namespace AppFinal
             {
                 Session.Add("Error", ex);
             }
-        }
-
-        protected void btnAtras_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Gestion.aspx");
         }
     }
 }

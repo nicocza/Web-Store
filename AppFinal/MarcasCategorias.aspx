@@ -4,6 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
     <div class="row">
         <div class="col-6">
             <div class="mb-3">
@@ -27,14 +29,32 @@
                 <asp:DropDownList ID="ddlMarca" CssClass="form-select" BackColor="#333333" ForeColor="White" Font-Bold="true" runat="server"></asp:DropDownList>
             </div>
             <div class="mb-3">
-                <asp:Button ID="btnEliminarMarca" CssClass="btn-2 focus-ring focus-ring-danger" ForeColor="Black" BackColor="#dc3545" runat="server" Text="Eliminar" OnClick="btnEliminarMarca_Click" />
+                <asp:Button ID="btnEliminarMarca" CssClass="btn-2 focus-ring focus-ring-warning" ForeColor="Black" BackColor="#ffc107" runat="server" Text="Eliminar" OnClick="btnEliminarMarca_Click" />
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <%if (confirmaElimMarca)
+                            {%>
+                        <asp:CheckBox ID="chkConfirmaEliminarMarca" Text="Confirmar eliminación" Font-Bold="true" runat="server" />
+                        <asp:Button ID="btnConfirmaEliminarMarca" CssClass="btn-2 focus-ring focus-ring-danger" ForeColor="Black" BackColor="#dc3545" runat="server" Text="Eliminar" OnClick="btnConfirmaEliminarMarca_Click" />
+                        <%} %>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
             <div class="mb-3">
                 <asp:Label runat="server" Text="Elimina una Categoria:" Font-Bold="true" Font-Size="X-Large" CssClass="form-label" Width="300px"></asp:Label>
                 <asp:DropDownList ID="ddlCategoria" CssClass="form-select" BackColor="#333333" ForeColor="White" Font-Bold="true" runat="server"></asp:DropDownList>
             </div>
             <div class="mb-3">
-                <asp:Button ID="btnEliminarCategoria" CssClass="btn-2 focus-ring focus-ring-danger" ForeColor="Black" BackColor="#dc3545" runat="server" Text="Eliminar" OnClick="btnEliminarCategoria_Click" />
+                <asp:Button ID="btnEliminarCategoria" CssClass="btn-2 focus-ring focus-ring-warning" ForeColor="Black" BackColor="#ffc107" runat="server" Text="Eliminar" OnClick="btnEliminarCategoria_Click" />
+                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                    <ContentTemplate>
+                        <%if (confirmaElimCat)
+                            { %>
+                        <asp:CheckBox ID="chkConfirmaEliminarCat" Text="Confirmar eliminación" Font-Bold="true" runat="server" />
+                        <asp:Button ID="btnConfirmaEliminarCat" CssClass="btn-2 focus-ring focus-ring-danger" ForeColor="black" BackColor="#dc3545" runat="server" Text="Eliminar" OnClick="btnConfirmaEliminarCat_Click" />
+                        <%} %>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
         </div>
     </div>

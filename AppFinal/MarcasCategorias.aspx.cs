@@ -11,8 +11,14 @@ namespace AppFinal
 {
     public partial class MarcasCategorias : System.Web.UI.Page
     {
+        public bool confirmaElimMarca { get; set; }
+
+        public bool confirmaElimCat { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            confirmaElimMarca = false;
+            confirmaElimCat = false;
             if (!IsPostBack)
                 cargarListasDDL();
         }
@@ -56,30 +62,12 @@ namespace AppFinal
 
         protected void btnEliminarMarca_Click(object sender, EventArgs e)
         {
-            try
-            {
-                MarcaCategoria negocio = new MarcaCategoria();
-                negocio.eliminarMarcaSP(int.Parse(ddlMarca.SelectedValue));
-                Response.Redirect("MarcasCategorias.aspx");
-            }
-            catch (Exception ex)
-            {
-                Session.Add("Error", ex);
-            }
+            confirmaElimMarca = true;
         }
 
         protected void btnEliminarCategoria_Click(object sender, EventArgs e)
         {
-            try
-            {
-                MarcaCategoria negocio = new MarcaCategoria();
-                negocio.eliminarCategoriaSP(int.Parse(ddlCategoria.SelectedValue));
-                Response.Redirect("MarcasCategorias.aspx");
-            }
-            catch (Exception ex)
-            {
-                Session.Add("Error", ex);
-            }
+            confirmaElimCat = true;
         }
 
         private void cargarListasDDL()
@@ -95,6 +83,40 @@ namespace AppFinal
             ddlCategoria.DataTextField = "Descripcion";
             ddlCategoria.DataValueField = "Id";
             ddlCategoria.DataBind();
+        }
+
+        protected void btnConfirmaEliminarMarca_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkConfirmaEliminarMarca.Checked)
+                {
+                    MarcaCategoria negocio = new MarcaCategoria();
+                    negocio.eliminarMarcaSP(int.Parse(ddlMarca.SelectedValue));
+                    Response.Redirect("MarcasCategorias.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex);
+            }
+        }
+
+        protected void btnConfirmaEliminarCat_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkConfirmaEliminarCat.Checked)
+                {
+                    MarcaCategoria negocio = new MarcaCategoria();
+                    negocio.eliminarCategoriaSP(int.Parse(ddlCategoria.SelectedValue));
+                    Response.Redirect("MarcasCategorias.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex);
+            }
         }
     }
 }

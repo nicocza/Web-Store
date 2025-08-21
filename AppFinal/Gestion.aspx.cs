@@ -36,6 +36,7 @@ namespace AppFinal
         protected void dgvArticulos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             dgvArticulos.PageIndex = e.NewPageIndex;
+            dgvArticulos.DataSource = Session["ListaArticulos"];
             dgvArticulos.DataBind();
         }
 

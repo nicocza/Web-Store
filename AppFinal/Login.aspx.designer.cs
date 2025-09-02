@@ -11,7 +11,7 @@ namespace AppFinal
 {
 
 
-    public partial class Perfil
+    public partial class Login
     {
 
         /// <summary>

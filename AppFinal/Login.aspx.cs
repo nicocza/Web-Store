@@ -32,7 +32,7 @@ namespace AppFinal
                 }
                 else
                 {
-                    Session.Add("error", "Email o Contraseña incorrectos");
+                    Session.Add("error", "Email o contraseña incorrectos");
                     Response.Redirect("ErrorLogin.aspx", false);
                 }
             }

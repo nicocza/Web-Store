@@ -69,12 +69,13 @@
   <ItemGroup>
     <Content Include="Contacto.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="ErrorLogin.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Favoritos.aspx" />
     <Content Include="FormularioArticulo.aspx" />
     <Content Include="Gestion.aspx" />
     <Content Include="MarcasCategorias.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MenuAdmin.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="Styles\Botones.css" />
     <Content Include="Styles\CardStyle.css" />
@@ -97,12 +98,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ErrorLogin.aspx.cs">
-      <DependentUpon>ErrorLogin.aspx</DependentUpon>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ErrorLogin.aspx.designer.cs">
-      <DependentUpon>ErrorLogin.aspx</DependentUpon>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Favoritos.aspx.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
@@ -145,6 +146,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAdmin.aspx.cs">
+      <DependentUpon>MenuAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuAdmin.aspx.designer.cs">
+      <DependentUpon>MenuAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>

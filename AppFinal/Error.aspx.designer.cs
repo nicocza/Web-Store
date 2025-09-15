@@ -11,25 +11,16 @@ namespace AppFinal
 {
 
 
-    public partial class Perfil
+    public partial class Error
     {
 
         /// <summary>
-        /// btnAdmin control.
+        /// lblMensaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdmin;
-
-        /// <summary>
-        /// btnUsuario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUsuario;
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
     }
 }

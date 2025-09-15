@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Model;
 
 namespace AppFinal
 {
@@ -14,8 +15,18 @@ namespace AppFinal
             if (Session["usuario"] == null)
             {
                 Session.Add("Error", "Debes loguearte para ingresar");
-                Response.Redirect("ErrorLogin");
+                Response.Redirect("Login.aspx", false);
             }
+        }
+
+        protected void btnAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MenuAdmin.aspx");
+        }
+
+        protected void btnUsuario_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
         }
     }
 }

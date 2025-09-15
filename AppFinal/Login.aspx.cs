@@ -33,12 +33,13 @@ namespace AppFinal
                 else
                 {
                     Session.Add("error", "Email o contraseña incorrectos");
-                    Response.Redirect("ErrorLogin.aspx", false);
+                    Response.Redirect("Error.aspx", false);
                 }
             }
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
             }
         }
     }

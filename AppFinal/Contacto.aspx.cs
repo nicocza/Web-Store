@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Control;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,20 @@ namespace AppFinal
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            EmailService service = new EmailService();
+            service.armarCorreo(txtEmail.Text, txtAsunto.Text, txtMensaje.Text);
+            try
+            {
+                service.enviarEmail();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
+            }
         }
     }
 }

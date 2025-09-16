@@ -15,7 +15,7 @@ namespace Control
 
             try
             {
-                datos.setearConsulta("Select id, email, pass, nombre, apellido, urlImagenPerfil, admin from USERS Where email = @email And pass = @pass");
+                datos.setearProcedimiento("storedLoguearUsuario");
                 datos.setearParametro("@email", usuario.Email);
                 datos.setearParametro("@pass", usuario.Pass);
 
@@ -28,6 +28,27 @@ namespace Control
                     return true;
                 }
                 return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public int insertarNuevo(Usuario nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearProcedimiento("storedInsertarUsuario");
+                datos.setearParametro("@email", nuevo.Email);
+                datos.setearParametro("@pass", nuevo.Pass);
+                return datos.ejecutarAccionScalar(); 
             }
             catch (Exception ex)
             {

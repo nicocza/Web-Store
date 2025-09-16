@@ -14,9 +14,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
-
-
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="Default.aspx">Home</a>
@@ -26,7 +23,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="Login.aspx">Login</a>
+                            <a class="nav-link" href="Perfil.aspx">Perfil</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Favoritos.aspx">Favoritos</a>
@@ -39,9 +36,8 @@
                         </li>
                     </ul>
                     <form1 class="d-flex" role="search">
-                        
-                        <input class="form-control me-2" type="search" placeholder="Productos, marcas..." aria-label="Search" />
-                        <button class="btn btn-outline-info" type="submit">Buscar</button>
+                        <asp:Button ID="btnRegistrarse" CssClass="btn btn-outline-info" runat="server" Text="Registrarse" OnClick="btnRegistrarse_Click" />
+                        <asp:Button ID="btnIngresar" CssClass="btn btn-outline-info" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
                     </form1>
                 </div>
             </div>

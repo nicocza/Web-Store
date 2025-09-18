@@ -16,20 +16,20 @@ namespace Control
         public EmailService()
         {
             server = new SmtpClient();
-            server.Credentials = new NetworkCredential("nicoczastore@gmail.com", "WebStoreMax");
+            server.Credentials = new NetworkCredential("730e008db03e8a", "592a4b17c38984");
             server.EnableSsl = true;
-            server.Port = 587;
-            server.Host = "smtp.gmail.com";
+            server.Port = 2525;
+            server.Host = "sandbox.smtp.mailtrap.io";
         }
 
         public void armarCorreo(string emailDestino, string asunto, string cuerpo)
         {
             email = new MailMessage();
-            email.From = new MailAddress("noresponder@ecomercenicocza.com");
+            email.From = new MailAddress("noresponder@nicoczastore.com");
             email.To.Add(emailDestino);
             email.Subject = asunto;
             email.IsBodyHtml = true;
-            email.Body = "<h1>Hola te comunicaste con nicocza web store</h1> <br>Que tal? en momentos se contactará alguien para darle solución.</br>";
+            email.Body = cuerpo;
         }
 
         public void enviarEmail()

@@ -22,7 +22,6 @@ namespace Model
         public string URLImagenPerfil { get; set; }
         public bool Admin { get; set; }
         public TipoUsuario TipoUsuario { get; set; }
-
         public Usuario(string email, string pass, bool admin)
         {
             Email = email;

@@ -80,6 +80,7 @@
     <Content Include="Registro.aspx" />
     <Content Include="Styles\Botones.css" />
     <Content Include="Styles\CardStyle.css" />
+    <Content Include="Styles\Contacto.css" />
     <Content Include="Styles\FormularioStyle.css" />
     <Content Include="Styles\FooterStyle.css" />
     <Content Include="Web.config" />

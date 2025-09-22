@@ -17,6 +17,11 @@ namespace AppFinal
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.esAdmin(Session["usuario"]))
+            {
+                Session.Add("error", "No tienes acceso, solo administradores.");
+                Response.Redirect("Error.aspx", false);
+            }
             if (!IsPostBack)
             {
                 FiltroAvanzado = false;

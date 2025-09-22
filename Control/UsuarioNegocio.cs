@@ -24,6 +24,7 @@ namespace Control
                 while (datos.Lector.Read())
                 {
                     usuario.Id = (int)datos.Lector["id"];
+                    usuario.Admin = (bool)datos.Lector["admin"];
                     usuario.TipoUsuario = Convert.ToBoolean(datos.Lector["admin"]) == true ? TipoUsuario.ADMIN : TipoUsuario.NORMAL;
                     return true;
                 }

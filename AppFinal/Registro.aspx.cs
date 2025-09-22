@@ -23,7 +23,8 @@ namespace AppFinal
                 Usuario user = new Usuario(txtEmail.Text, txtPass.Text, false);
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 EmailService service = new EmailService();
-                int id = negocio.insertarNuevo(user);
+                user.Id = negocio.insertarNuevo(user);
+                Session.Add("usuario", user);
 
                 service.armarCorreo(user.Email, "Bienvenido/a", "Te damos la bienvenida a Nicocza Store");
                 service.enviarEmail();

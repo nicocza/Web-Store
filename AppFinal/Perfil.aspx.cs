@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
+using Control;
 
 namespace AppFinal
 {
@@ -12,11 +13,7 @@ namespace AppFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
-            {
-                Session.Add("Error", "Debes loguearte para ingresar");
-                Response.Redirect("Login.aspx", false);
-            }
+            
         }
 
         protected void btnAdmin_Click(object sender, EventArgs e)

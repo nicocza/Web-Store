@@ -16,14 +16,29 @@ namespace AppFinal
             
         }
 
-        protected void btnAdmin_Click(object sender, EventArgs e)
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MenuAdmin.aspx");
-        }
+            try
+            {
+                UsuarioNegocio negocio = new UsuarioNegocio();
 
-        protected void btnUsuario_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Default.aspx");
+                string ruta = Server.MapPath("./Images/");
+                Usuario user = (Usuario)Session["usuario"];
+                txtImagen.PostedFile.SaveAs(ruta + "perfil-" + user.Id + ".jpg");
+
+                user.URLImagenPerfil = "perfil-" + user.Id + ".jpg";               
+                user.Nombre = txtNombre.Text;
+                user.Apellido = txtApellido.Text;
+                negocio.Actualizar(user);
+
+                Image img = (Image)Master.FindControl("imgPerfil");
+                img.ImageUrl = "~/images/" + user.URLImagenPerfil;
+
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+            }
         }
     }
 }

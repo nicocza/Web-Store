@@ -29,7 +29,7 @@ namespace AppFinal
                 service.armarCorreo(user.Email, "Bienvenido/a", "Te damos la bienvenida a Nicocza Store");
                 service.enviarEmail();
 
-                Response.Redirect("Default.aspx");
+                Response.Redirect("Perfil.aspx");
             }
             catch (Exception ex)
             {

@@ -36,7 +36,7 @@
                         </li>
                     </ul>
                     <form1 class="d-flex" role="search">
-                        <%if (!Control.Seguridad.SesionActiva(Session["usuario"]))
+                        <%if (!global::Control.Seguridad.SesionActiva(Session["usuario"]))
                             {%>
                         <asp:Button ID="btnRegistrarse" CssClass="btn btn-outline-info" runat="server" Text="Registrarse" OnClick="btnRegistrarse_Click" />
                         <asp:Button ID="btnIngresar" CssClass="btn btn-outline-info" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
@@ -44,8 +44,9 @@
                             else
                             {
                         %>
-                        <asp:Button ID="btnSalir" CssClass="btn btn-outlin-info" runat="server" Text="Salir" OnClick="btnSalir_Click" />
+                        <asp:Button ID="btnSalir" CssClass="btn btn-outline-info" runat="server" Text="Salir" OnClick="btnSalir_Click" />
                         <%}%>
+                        <asp:Image ID="imgPerfil" Height="40px" Width="40px" runat="server" />
                     </form1>
                 </div>
             </div>

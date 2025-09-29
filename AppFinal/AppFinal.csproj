@@ -75,7 +75,6 @@
     <Content Include="Gestion.aspx" />
     <Content Include="MarcasCategorias.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="MenuAdmin.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Styles\Botones.css" />
@@ -149,13 +148,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MenuAdmin.aspx.cs">
-      <DependentUpon>MenuAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MenuAdmin.aspx.designer.cs">
-      <DependentUpon>MenuAdmin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,6 +183,9 @@
       <Project>{1ab60b66-b001-45f0-a175-c4bcece66118}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
